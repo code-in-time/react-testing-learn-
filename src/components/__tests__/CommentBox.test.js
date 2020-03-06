@@ -1,14 +1,33 @@
 import React from 'react'
 import CommentBox from 'components/CommentBox'
-import {shallow} from 'enzyme'
+import {mount} from 'enzyme'
 
-let wrapper;
+
+let wrapper
 
 beforeEach(() => {
-  wrapper = shallow(<CommentBox />);
+  wrapper = mount(<CommentBox />);
 })
 
-it('shows a comment block using enzyme', () => {
-  expect(wrapper.find('h4').text()).toEqual('Add a comment');
+it('has a text area and a button', () => {
+  expect(wrapper.find("textarea").length).toEqual(1)
+  expect(wrapper.find("button").length).toEqual(1)
 })
 
+it('can type in the text area', () => {
+  wrapper.find("textarea").simulate('change', { target: { value: 'new comment' } });
+  wrapper.update()
+  expect(wrapper.find("textarea").prop('value')).toBe('new comment')
+})
+
+it('click button and the text area is clear', () => {
+  wrapper.find("textarea").simulate('change', { target: { value: 'new comment' } });
+  wrapper.update()
+  wrapper.find("button").simulate('click');
+  wrapper.update()
+  expect(wrapper.find("textarea").prop('value')).toBe('d')
+})
+
+afterEach(() => {
+  wrapper.unmount()
+})
