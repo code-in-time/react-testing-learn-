@@ -1,12 +1,13 @@
 import React from 'react'
 import CommentBox from 'components/CommentBox'
 import {mount} from 'enzyme'
+import Root from '../../Root'
 
 
 let wrapper
 
 beforeEach(() => {
-  wrapper = mount(<CommentBox />);
+  wrapper = mount(<Root><CommentBox /></Root>);
 })
 
 it('has a text area and a button', () => {
