@@ -1,4 +1,4 @@
-import { SAVE_COMMENTS} from 'actions/types'
+import { SAVE_COMMENTS} from '../actions/types'
 
 
 export default (state = [], action) => {
