@@ -17,6 +17,10 @@ it('has a text area and a button', () => {
 
 
 describe(' the text area', () => {
+  beforeEach(() => {
+    wrapper.find("textarea").simulate('change', { target: { value: 'new comment' } });
+    wrapper.update()
+  })
 
   it('can type in the text area', () => {
     expect(wrapper.find("textarea").prop('value')).toEqual('new comment')
