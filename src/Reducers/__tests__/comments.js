@@ -1,4 +1,4 @@
-import commentsReducer from '../../Reducers/comments'
+import commentsReducer from '../comments'
 import { SAVE_COMMENT } from '../../actions/types'
 
 it('handles action of type save comment', () => {
