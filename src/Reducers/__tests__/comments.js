@@ -19,5 +19,5 @@ it('handles action with unknown type', () => {
 
   const newState = commentsReducer([] ,action)
 
-  expect(newState).toEqual(['hh'])
+  expect(newState).toEqual([])
 })
