@@ -30,11 +30,11 @@ it('can fetch a list of comments and display them', (done) => {
 
   // Find fetch comments button and click it
   wrapped.find(".fetch-comments").simulate('click');
-  // Expect a list of 500 comments
-  setTimeout(() => {
+  // Expect a list of 2 comments
+  moxios.wait(() => {
     wrapped.update();
     expect(wrapped.find('li').length).toEqual(2)
     done();
     wrapped.unmount();
-  }, 1000);
+  });
 })
